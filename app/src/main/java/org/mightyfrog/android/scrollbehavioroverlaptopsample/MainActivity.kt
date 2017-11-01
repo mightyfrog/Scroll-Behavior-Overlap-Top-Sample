@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val p = Palette.from(BitmapFactory.decodeResource(resources, R.drawable.pizza)).generate()
-        findViewById<View>(android.R.id.content).setBackgroundColor(p.dominantSwatch?.rgb!!)
+        p.dominantSwatch?.apply {
+            findViewById<View>(android.R.id.content).setBackgroundColor(rgb)
+        }
     }
 }
